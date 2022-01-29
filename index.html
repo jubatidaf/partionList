@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <ul>
+      <p>
+        *****************Saisie les elment de la liste séparer par des virgule
+        et le nombre de partition souhaitée
+      </p>
+
+      <li>
+        <label>saisieles element de votre liste séparé par des virgule example : 1,5,8,6,8,10/label>
+        <input type="text" id="lstId" />
+      </li>
+      <li>
+        <label>saisie votre nombre de partition</label>
+        <input title="value" type="text" id="partNumber1" />
+      </li>
+      <li>
+        <button type="button" onclick="get_post_ajax();">
+          PARTITIONNER_LISTE_CHOISIE
+        </button>
+      </li>
+      <li>
+        <label>result:</label>
+        <p id="demo"></p>
+      </li>
+    </ul>
+
+    <ul>
+      <p>
+        ***********List aleatoire : saisie la taille de la liste de départ et le
+        nombre de partition souhaitée
+      </p>
+
+      <li>
+        <label>saisieles la taille de votre liste aléatoire</label>
+        <input type="text" id="lengthlist" />
+      </li>
+
+      <li>
+        <label> saisie votre nombre de partition</label>
+
+        <input type="text" id="partNumber" />
+      </li>
+      <li>
+        <button type="button" onclick="get_post_ajax2();">
+          PARTITIONNER_LISTE_ALEATOIRE
+        </button>
+      </li>
+      <li>
+        <label>result:</label>
+        <p id="random"></p>
+      </li>
+    </ul>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      
+
+      function get_post_ajax() {
+        var xhr = new XMLHttpRequest();
+        var lengtLst = document.getElementById("lstId").value;
+
+        var partNumber = document.getElementById("partNumber1").value;
+
+		console.log("["+lengtLst+"]");
+		console.log(partNumber);
+        var data = {};
+		var array = JSON.parse("[" + lengtLst + "]");
+        data.lstPartition =array;
+        data.partitionNumber = partNumber;
+        var params = JSON.stringify(data);
+        //console.log(params);
+        xhr.onreadystatechange = function () {
+          if (xhr.status == 200) {
+            document.getElementById("demo").innerHTML = xhr.responseText;
+          }
+        };
+        xhr.open("POST", "http://127.0.0.1:6464/get-partion-list/");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        //xhr.onload = requestComplete;
+        xhr.send(params);
+      }
+
+      function get_post_ajax2() {
+        var xhr = new XMLHttpRequest();
+
+        var lengtLst = document.getElementById("lengthlist").value;
+
+        var x = [],
+          i = 1;
+        while (i <= lengtLst) {
+          x.push(i);
+          i++;
+        }
+
+        var partNumber = document.getElementById("partNumber").value;
+        var data = {};
+        data.lstPartition = x;
+        data.partitionNumber = partNumber;
+        var params = JSON.stringify(data);
+        //console.log(params);
+        xhr.onreadystatechange = function () {
+          if (xhr.status == 200) {
+            document.getElementById("random").innerHTML = xhr.responseText;
+          }
+        };
+        xhr.open("POST", "http://127.0.0.1:6464/get-partion-list/");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        //xhr.onload = requestComplete;
+        xhr.send(params);
+      }
+    </script>
+  </body>
+</html>

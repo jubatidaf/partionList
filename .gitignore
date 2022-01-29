@@ -1,0 +1,17 @@
+# IGNORE #
+###################
+
+target/
+.idea/
+.classpath
+.project
+*.iml
+*.class
+*.exec
+**.settings
+*/*.exec
+*/*/*.exec
+*/*/*/*.exec
+**/.settings
+*settings/
+*/**.settings/
