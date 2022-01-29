@@ -1,3 +1,6 @@
+FIRST : ***télécharger le zip et decompresser le.
+
+
 1- l'application est en spring boot deployé sur hiroku 
 	1-1 pour la deployé en local suffit de  faire sur un terminal:
 		- mvn clean install
