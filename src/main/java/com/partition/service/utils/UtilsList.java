@@ -27,7 +27,7 @@ public final class UtilsList<T> extends AbstractList<List<T>> {
         int end = Math.min(start + partitionNumber, lstPartition.size());
 
         if (start > end) {
-            throw new IndexOutOfBoundsException("Index " + index + " is out of the list range <0," + (size() - 1) + ">");
+            throw new IndexOutOfBoundsException("Index out of the list range");
         }
 
         return new ArrayList<>(lstPartition.subList(start, end));

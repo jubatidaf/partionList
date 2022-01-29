@@ -1,0 +1,13 @@
+1- l'application est en spring boot deployé sur hiroku 
+	1-1 pour la deployé en local suffit de  faire sur un terminal:
+		- mvn clean install
+		- puis lancé l'application avec mvn spring-boot:run
+
+
+*******Utilisation********
+2- lancer index.html
+2-2 un formulaire s'affiche, permet de faire deux cas d'utilisations : 
+	- premier : saisir les elements de la liste ET le nombre de partirion souhaitée
+	- deuxiueme : saisir la taille de la liste qu'on souhaite générer aléatoirement ET le nombre de partirion souhaitée
+	
+	

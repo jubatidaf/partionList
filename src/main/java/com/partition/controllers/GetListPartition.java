@@ -2,7 +2,6 @@ package com.partition.controllers;
 
 
 import com.partition.entity.PartitionEntityDto;
-import com.partition.exception.FunctionalException;
 import com.partition.service.impl.ServicePartition;
 import com.partition.service.utils.UtilsList;
 import org.slf4j.Logger;
@@ -11,12 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.ws.rs.Produces;
-import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Request;
-import javax.ws.rs.core.Response;
-import javax.xml.ws.http.HTTPException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -39,13 +33,13 @@ public class GetListPartition {
             }
             if (partitionEntityDto !=null) {
                 if(partitionEntityDto.getLstPartition()==null || partitionEntityDto.getPartitionNumber()==null)
-                return servicePartition.partition(null, 0);
+                    return servicePartition.partition(null, 0);
             }
             return servicePartition.partition(partitionEntityDto.getLstPartition(), partitionEntityDto.getPartitionNumber());
-    } catch (Exception e) {
-        LOGGER.error("Erreur générale lors de la partition {}", e.getMessage());
-        throw new Exception("Erreur Général");
-    }
+        } catch (Exception e) {
+            LOGGER.error("Erreur générale lors de la partition {}", e.getMessage());
+            throw new Exception("Erreur Général");
+        }
     }
 
     @GetMapping("/1")

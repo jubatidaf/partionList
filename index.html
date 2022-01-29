@@ -3,12 +3,12 @@
   <body>
     <ul>
       <p>
-        *****************Saisie les elment de la liste séparer par des virgule
+        *****************Saisie les elments de la liste séparer par des virgule
         et le nombre de partition souhaitée
       </p>
 
       <li>
-        <label>saisieles element de votre liste séparé par des virgule example : 1,5,8,6,8,10/label>
+        <label>saisie les elements de votre liste séparé par des virgule example : 1,5,8,6,8,10   </label>
         <input type="text" id="lstId" />
       </li>
       <li>
@@ -76,7 +76,7 @@
             document.getElementById("demo").innerHTML = xhr.responseText;
           }
         };
-        xhr.open("POST", "http://127.0.0.1:6464/get-partion-list/");
+        xhr.open("POST", "https://partition-list-app-test.herokuapp.com/get-partion-list/");
         xhr.setRequestHeader("Content-Type", "application/json");
         //xhr.onload = requestComplete;
         xhr.send(params);
@@ -105,7 +105,7 @@
             document.getElementById("random").innerHTML = xhr.responseText;
           }
         };
-        xhr.open("POST", "http://127.0.0.1:6464/get-partion-list/");
+        xhr.open("POST", "https://partition-list-app-test.herokuapp.com/get-partion-list/");
         xhr.setRequestHeader("Content-Type", "application/json");
         //xhr.onload = requestComplete;
         xhr.send(params);
