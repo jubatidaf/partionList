@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 public class UtilsListTest {
 
 
-    /*List<Integer> bigList = new ArrayList<>();
+    List<Integer> bigList = new ArrayList<>();
     @Before
     public void setup() {
         for (int i = 0; i<100000000;i++){
@@ -54,5 +54,5 @@ public class UtilsListTest {
     @Test
     public void testIfListNull(){
         assertEquals(0,UtilsList.ofSize(null, 1).size());
-    }*/
+    }
 }

@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 
 public class ServicePartitionTest {
 
-   /* @InjectMocks
+    @InjectMocks
     private  ServicePartition servicePartition= new ServicePartition();
 
     List<Integer> bigList = new ArrayList<>();
@@ -56,6 +56,6 @@ public class ServicePartitionTest {
     @Test
     public void testIfListNull(){
         assertEquals(0,servicePartition.partition(null, 1).size());
-    }*/
+    }
 
 }
